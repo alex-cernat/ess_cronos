@@ -1,0 +1,65 @@
+TITLE: Trust institutions equivalence testing GB - scalar;
+
+DATA: FILE = "data4.dat";
+
+VARIABLE: 
+NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+     cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+     pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+     w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+     sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+     trstprt trstep trstun comp; 
+
+USEVARIABLES = trstlgl trstplc trstplt
+     trstprt trstep trstun
+     w6q9 w6q10 w6q11 w6q12 w6q13 w6q14;
+
+MISSING=.;
+
+USEOBSERVATIONS ARE w6part EQ 1 AND cntry EQ 2;
+
+
+
+ Model:
+
+trust_ess BY 
+    trstlgl (a)
+    trstplc (b)
+    trstplt (c)
+    trstprt (d)
+    trstep (e)
+    trstun (f);
+
+trust_cro BY 
+    w6q9 (a)
+    w6q10 (b)
+    w6q11 (c)
+    w6q12 (d)
+    w6q13 (e)
+    w6q14 (f);
+
+    [trstlgl] (g);
+    [trstplc] (h);
+    [trstplt] (i);
+    [trstprt] (j);
+    [trstep] (k);
+    [trstun] (l);
+
+
+    [w6q9] (g);
+    [w6q10] (h);
+    [w6q11] (i);
+    [w6q12] (j);
+    [w6q13] (k);
+    [w6q14] (l);
+
+
+    trstlgl WITH w6q9;
+    trstplc WITH w6q10;
+    trstplt WITH w6q11;
+    trstprt WITH w6q12;
+    trstep WITH w6q13;
+    trstun WITH w6q14;
+
+ Output:
+    STANDARDIZED(STDYX) MODINDICES(.1) ;

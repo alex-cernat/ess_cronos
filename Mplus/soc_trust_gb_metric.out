@@ -1,0 +1,475 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+05/07/2019  10:49 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Social trust equivalence testing GB - metric;
+
+  DATA: FILE = "data4.dat";
+
+  VARIABLE:
+  NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+       cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+       pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+       w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+       sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+       trstprt trstep trstun comp;
+
+  USEVARIABLES = ppltrst pplfair pplhlp
+        w5q57 w5q58 w5q59
+       w6q5 w6q6 w6q7;
+
+  MISSING=.;
+
+  USEOBSERVATIONS ARE w5part EQ 1 AND w6part EQ 1 AND cntry EQ 2;
+
+
+
+   Model:
+
+   soc_trust_ess BY
+      ppltrst (a)
+      pplfair (b)
+      pplhlp (c);
+
+   soc_trust_cro5 BY
+      w5q57 (a)
+      w5q58 (b)
+      w5q59 (c);
+
+   soc_trust_cro6 BY
+      w6q5 (a)
+      w6q6 (b)
+      w6q7 (c);
+
+
+      ppltrst WITH w5q57 w6q5;
+      w5q57 WITH w6q5;
+
+      pplfair WITH w5q58 w6q6;
+      w5q58 WITH w6q6;
+
+      pplhlp WITH w5q59 w6q7;
+      w5q59 WITH w6q7;
+
+
+   Output:
+      STANDARDIZED(STDYX) MODINDICES(.1) ;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Social trust equivalence testing GB - metric;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         563
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   PPLTRST     PPLFAIR     PPLHLP      W5Q57       W5Q58       W5Q59
+   W6Q5        W6Q6        W6Q7
+
+Continuous latent variables
+   SOC_TRUS    SOC_TRUS    SOC_TRUS
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  data4.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             8
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PPLTRST       PPLFAIR       PPLHLP        W5Q57         W5Q58
+              ________      ________      ________      ________      ________
+ PPLTRST        1.000
+ PPLFAIR        1.000         1.000
+ PPLHLP         0.998         0.998         0.998
+ W5Q57          0.980         0.980         0.979         0.980
+ W5Q58          0.979         0.979         0.977         0.979         0.979
+ W5Q59          0.979         0.979         0.977         0.979         0.979
+ W6Q5           0.980         0.980         0.979         0.966         0.964
+ W6Q6           0.973         0.973         0.972         0.959         0.959
+ W6Q7           0.975         0.975         0.973         0.961         0.961
+
+
+           Covariance Coverage
+              W5Q59         W6Q5          W6Q6          W6Q7
+              ________      ________      ________      ________
+ W5Q59          0.979
+ W6Q5           0.964         0.980
+ W6Q6           0.959         0.973         0.973
+ W6Q7           0.961         0.975         0.973         0.975
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     PPLTRST               5.746      -0.578       0.000    3.02%       4.000      5.000      6.000
+             563.000       4.396       0.251      10.000    1.95%       7.000      8.000
+     PPLFAIR               6.265      -0.524       0.000    0.53%       5.000      6.000      7.000
+             563.000       3.484       0.139      10.000    2.31%       7.000      8.000
+     PPLHLP                6.146      -0.522       0.000    0.18%       5.000      6.000      6.000
+             562.000       2.819       0.340      10.000    1.07%       7.000      8.000
+     W5Q57                 5.257      -0.550       0.000    8.70%       3.000      5.000      6.000
+             552.000       6.220      -0.298      10.000    2.90%       6.000      7.000
+     W5Q58                 5.737      -0.532       0.000    4.36%       4.000      5.000      6.000
+             551.000       5.221       0.209      10.000    4.36%       7.000      8.000
+     W5Q59                 5.630      -0.520       0.000    4.36%       4.000      5.000      6.000
+             551.000       4.854       0.325      10.000    3.81%       6.000      7.000
+     W6Q5                  5.656      -0.557       0.000    4.71%       4.000      5.000      6.000
+             552.000       5.776      -0.178      10.000    3.99%       7.000      8.000
+     W6Q6                  5.872      -0.417       0.000    2.92%       4.000      5.000      6.000
+             548.000       4.958       0.004      10.000    4.93%       7.000      8.000
+     W6Q7                  5.765      -0.454       0.000    2.19%       4.000      5.000      6.000
+             549.000       4.511       0.005      10.000    3.10%       7.000      8.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       35
+
+Loglikelihood
+
+          H0 Value                       -9700.773
+          H1 Value                       -9675.721
+
+Information Criteria
+
+          Akaike (AIC)                   19471.546
+          Bayesian (BIC)                 19623.211
+          Sample-Size Adjusted BIC       19512.103
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             50.105
+          Degrees of Freedom                    19
+          P-Value                           0.0001
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.054
+          90 Percent C.I.                    0.036  0.072
+          Probability RMSEA <= .05           0.335
+
+CFI/TLI
+
+          CFI                                0.987
+          TLI                                0.975
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           2393.683
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.036
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SOC_TRUS BY
+    PPLTRST            1.000      0.000    999.000    999.000
+    PPLFAIR            0.993      0.039     25.677      0.000
+    PPLHLP             0.810      0.034     23.781      0.000
+
+ SOC_TRUS BY
+    W5Q57              1.000      0.000    999.000    999.000
+    W5Q58              0.993      0.039     25.677      0.000
+    W5Q59              0.810      0.034     23.781      0.000
+
+ SOC_TRUS BY
+    W6Q5               1.000      0.000    999.000    999.000
+    W6Q6               0.993      0.039     25.677      0.000
+    W6Q7               0.810      0.034     23.781      0.000
+
+ SOC_TRUS WITH
+    SOC_TRUST_         1.585      0.186      8.499      0.000
+
+ SOC_TRUS WITH
+    SOC_TRUST_         1.804      0.194      9.302      0.000
+    SOC_TRUST_         2.856      0.275     10.402      0.000
+
+ PPLTRST  WITH
+    W5Q57              0.372      0.136      2.741      0.006
+    W6Q5               0.438      0.119      3.680      0.000
+
+ W5Q57    WITH
+    W6Q5               0.737      0.143      5.147      0.000
+
+ PPLFAIR  WITH
+    W5Q58             -0.155      0.105     -1.475      0.140
+    W6Q6               0.150      0.095      1.573      0.116
+
+ W5Q58    WITH
+    W6Q6               0.155      0.114      1.362      0.173
+
+ PPLHLP   WITH
+    W5Q59              0.154      0.104      1.481      0.139
+    W6Q7               0.209      0.096      2.181      0.029
+
+ W5Q59    WITH
+    W6Q7               0.420      0.114      3.673      0.000
+
+ Intercepts
+    PPLTRST            5.746      0.087     66.273      0.000
+    PPLFAIR            6.265      0.078     80.668      0.000
+    PPLHLP             6.146      0.073     83.999      0.000
+    W5Q57              5.240      0.107     49.148      0.000
+    W5Q58              5.725      0.098     58.681      0.000
+    W5Q59              5.618      0.092     60.853      0.000
+    W6Q5               5.647      0.101     55.917      0.000
+    W6Q6               5.863      0.095     61.849      0.000
+    W6Q7               5.758      0.089     64.545      0.000
+
+ Variances
+    SOC_TRUST_         1.992      0.192     10.378      0.000
+    SOC_TRUST_         3.680      0.325     11.327      0.000
+    SOC_TRUST_         3.814      0.328     11.629      0.000
+
+ Residual Variances
+    PPLTRST            2.240      0.173     12.943      0.000
+    PPLFAIR            1.431      0.136     10.511      0.000
+    PPLHLP             1.704      0.125     13.597      0.000
+    W5Q57              2.635      0.220     11.982      0.000
+    W5Q58              1.651      0.179      9.240      0.000
+    W5Q59              2.309      0.173     13.366      0.000
+    W6Q5               1.862      0.168     11.087      0.000
+    W6Q6               1.223      0.141      8.690      0.000
+    W6Q7               1.906      0.145     13.117      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SOC_TRUS BY
+    PPLTRST            0.686      0.025     27.800      0.000
+    PPLFAIR            0.761      0.024     31.801      0.000
+    PPLHLP             0.659      0.023     28.345      0.000
+
+ SOC_TRUS BY
+    W5Q57              0.763      0.021     36.484      0.000
+    W5Q58              0.829      0.020     41.949      0.000
+    W5Q59              0.715      0.023     31.579      0.000
+
+ SOC_TRUS BY
+    W6Q5               0.820      0.019     43.801      0.000
+    W6Q6               0.869      0.016     53.206      0.000
+    W6Q7               0.753      0.021     36.216      0.000
+
+ SOC_TRUS WITH
+    SOC_TRUST_         0.585      0.041     14.118      0.000
+
+ SOC_TRUS WITH
+    SOC_TRUST_         0.654      0.035     18.637      0.000
+    SOC_TRUST_         0.762      0.026     28.925      0.000
+
+ PPLTRST  WITH
+    W5Q57              0.153      0.054      2.859      0.004
+    W6Q5               0.214      0.053      4.019      0.000
+
+ W5Q57    WITH
+    W6Q5               0.333      0.052      6.344      0.000
+
+ PPLFAIR  WITH
+    W5Q58             -0.101      0.070     -1.444      0.149
+    W6Q6               0.113      0.068      1.655      0.098
+
+ W5Q58    WITH
+    W6Q6               0.109      0.075      1.450      0.147
+
+ PPLHLP   WITH
+    W5Q59              0.078      0.052      1.499      0.134
+    W6Q7               0.116      0.052      2.250      0.024
+
+ W5Q59    WITH
+    W6Q7               0.200      0.050      3.987      0.000
+
+ Intercepts
+    PPLTRST            2.793      0.087     32.282      0.000
+    PPLFAIR            3.400      0.103     33.036      0.000
+    PPLHLP             3.542      0.108     32.918      0.000
+    W5Q57              2.085      0.073     28.473      0.000
+    W5Q58              2.491      0.083     30.022      0.000
+    W5Q59              2.585      0.082     31.389      0.000
+    W6Q5               2.371      0.081     29.302      0.000
+    W6Q6               2.626      0.088     29.899      0.000
+    W6Q7               2.743      0.087     31.451      0.000
+
+ Variances
+    SOC_TRUST_         1.000      0.000    999.000    999.000
+    SOC_TRUST_         1.000      0.000    999.000    999.000
+    SOC_TRUST_         1.000      0.000    999.000    999.000
+
+ Residual Variances
+    PPLTRST            0.529      0.034     15.633      0.000
+    PPLFAIR            0.421      0.036     11.580      0.000
+    PPLHLP             0.566      0.031     18.490      0.000
+    W5Q57              0.417      0.032     13.062      0.000
+    W5Q58              0.313      0.033      9.543      0.000
+    W5Q59              0.489      0.032     15.110      0.000
+    W6Q5               0.328      0.031     10.690      0.000
+    W6Q6               0.245      0.028      8.653      0.000
+    W6Q7               0.432      0.031     13.798      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    PPLTRST            0.471      0.034     13.900      0.000
+    PPLFAIR            0.579      0.036     15.900      0.000
+    PPLHLP             0.434      0.031     14.172      0.000
+    W5Q57              0.583      0.032     18.242      0.000
+    W5Q58              0.687      0.033     20.975      0.000
+    W5Q59              0.511      0.032     15.790      0.000
+    W6Q5               0.672      0.031     21.900      0.000
+    W6Q6               0.755      0.028     26.603      0.000
+    W6Q7               0.568      0.031     18.108      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.154E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index     0.100
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+BY Statements
+
+SOC_TRUS BY PPLTRST                1.457     0.086      0.122        0.059
+SOC_TRUS BY PPLFAIR                0.994     0.058      0.082        0.044
+SOC_TRUS BY PPLHLP                 5.487    -0.114     -0.161       -0.093
+SOC_TRUS BY W5Q57                  2.511     0.113      0.160        0.064
+SOC_TRUS BY W5Q58                  2.494    -0.110     -0.156       -0.068
+SOC_TRUS BY W6Q6                   0.381     0.039      0.055        0.024
+SOC_TRUS BY W6Q7                   0.497    -0.042     -0.059       -0.028
+SOC_TRUS BY PPLTRST                1.679     0.059      0.112        0.055
+SOC_TRUS BY PPLFAIR                0.256     0.022      0.042        0.023
+SOC_TRUS BY PPLHLP                 3.720    -0.075     -0.143       -0.083
+SOC_TRUS BY W5Q58                  0.194    -0.017     -0.032       -0.014
+SOC_TRUS BY W5Q59                  0.679     0.028      0.054        0.025
+SOC_TRUS BY W6Q5                   1.560    -0.057     -0.110       -0.046
+SOC_TRUS BY W6Q6                   0.174    -0.019     -0.036       -0.016
+SOC_TRUS BY W6Q7                   3.709     0.083      0.158        0.075
+SOC_TRUS BY PPLTRST                2.746     0.072      0.141        0.068
+SOC_TRUS BY PPLHLP                 2.790    -0.062     -0.122       -0.070
+SOC_TRUS BY W5Q57                  3.526     0.091      0.178        0.071
+SOC_TRUS BY W5Q58                  3.088    -0.083     -0.162       -0.071
+SOC_TRUS BY W6Q5                   0.331    -0.029     -0.057       -0.024
+SOC_TRUS BY W6Q7                   1.011     0.025      0.048        0.023
+
+WITH Statements
+
+PPLFAIR  WITH PPLTRST              2.080     0.195      0.195        0.109
+PPLHLP   WITH PPLTRST              2.684    -0.187     -0.187       -0.096
+W5Q57    WITH PPLFAIR              0.154    -0.049     -0.049       -0.025
+W5Q57    WITH PPLHLP               2.506     0.177      0.177        0.084
+W5Q58    WITH PPLTRST              2.027     0.182      0.182        0.095
+W5Q58    WITH PPLHLP               5.999    -0.263     -0.263       -0.157
+W5Q58    WITH W5Q57                2.807    -0.291     -0.291       -0.139
+W5Q59    WITH PPLTRST              2.560    -0.192     -0.192       -0.084
+W5Q59    WITH PPLFAIR              1.829     0.150      0.150        0.082
+W5Q59    WITH W5Q57                6.177    -0.358     -0.358       -0.145
+W5Q59    WITH W5Q58               17.722     0.605      0.605        0.310
+W6Q5     WITH PPLFAIR              0.549     0.081      0.081        0.050
+W6Q5     WITH W5Q58                6.001    -0.305     -0.305       -0.174
+W6Q5     WITH W5Q59                0.759     0.097      0.097        0.047
+W6Q6     WITH PPLTRST              1.914     0.158      0.158        0.096
+W6Q6     WITH W5Q57                1.216     0.139      0.139        0.078
+W6Q6     WITH W5Q59                3.267    -0.195     -0.195       -0.116
+W6Q7     WITH PPLFAIR              4.861    -0.221     -0.221       -0.134
+W6Q7     WITH W5Q57                4.838     0.258      0.258        0.115
+W6Q7     WITH W5Q58                0.157     0.044      0.044        0.025
+W6Q7     WITH W6Q5                 0.305     0.066      0.066        0.035
+W6Q7     WITH W6Q6                 0.258    -0.060     -0.060       -0.039
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\msassac6\dropbox (the university of manchester)\papers\melanie revilla\ess_cronos\mplus\soc_trust_gb_metric
+
+     Beginning Time:  10:49:18
+        Ending Time:  10:49:18
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

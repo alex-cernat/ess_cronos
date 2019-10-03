@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+packrat/lib*/
+*.dta
+*.zip
+*.pdf
+*.txt
+*.do
+*.dgm
+*.dat
+*.gz

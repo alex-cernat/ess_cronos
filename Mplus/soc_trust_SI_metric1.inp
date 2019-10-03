@@ -1,0 +1,52 @@
+TITLE: Social trust equivalence testing SI - metric;
+
+DATA: FILE = "data4.dat";
+
+VARIABLE: 
+NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+     cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+     pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+     w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+     sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+     trstprt trstep trstun comp; 
+
+USEVARIABLES = ppltrst pplfair pplhlp
+      w5q57 w5q58 w5q59
+     w6q5 w6q6 w6q7;
+
+MISSING=.;
+
+USEOBSERVATIONS ARE w5part EQ 1 AND w6part EQ 1 AND cntry EQ 3;
+
+
+
+ Model:
+
+ soc_trust_ess BY 
+    ppltrst (a)
+    pplfair (b)
+    pplhlp ;
+
+ soc_trust_cro5 BY 
+    w5q57 (a)
+    w5q58 (b)
+    w5q59 (c);
+
+ soc_trust_cro6 BY 
+    w6q5 (a)
+    w6q6 (b)
+    w6q7 (c);
+
+
+    ppltrst WITH w5q57 w6q5;
+    w5q57 WITH w6q5;
+
+    pplfair WITH w5q58 w6q6;
+    w5q58 WITH w6q6;
+
+    pplhlp WITH w5q59 w6q7;
+    w5q59 WITH w6q7;
+
+
+ Output:
+    STANDARDIZED(STDYX) MODINDICES(.1) ;

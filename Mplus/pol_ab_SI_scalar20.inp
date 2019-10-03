@@ -1,0 +1,56 @@
+TITLE: Political ability equivalence testing SI - configural;
+
+DATA: FILE = "data4.dat";
+
+VARIABLE: 
+NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+     cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+     pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+     w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+     sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+     trstprt trstep trstun comp; 
+
+USEVARIABLES = psppsgva actrolga psppipla
+     cptppola w5q38 w5q39 w5q40 w5q41;
+
+MISSING=.;
+
+USEOBSERVATIONS ARE w5part EQ 1 AND cntry EQ 3;
+
+
+
+ Model:
+
+ phy_ab_ess BY 
+    psppsgva (a)
+    actrolga 
+    psppipla (c)
+    cptppola ;
+
+ phy_ab_cro BY 
+    w5q38 (a) 
+    w5q39 (b)
+    w5q40 (c)
+    w5q41 (d);
+
+
+    [psppsgva] (e);
+    [actrolga] (f);
+    [psppipla] (g);
+    [cptppola] (h);
+
+    [w5q38] (e); 
+    [w5q39] (f);
+    [w5q40] (g);
+    [w5q41] (h);
+
+
+
+    psppsgva WITH w5q38;
+    actrolga WITH w5q39;
+    psppipla WITH w5q40;
+    cptppola WITH w5q41;
+
+
+ Output:
+    STANDARDIZED(STDYX) MODINDICES(.1) ;

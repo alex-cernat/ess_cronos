@@ -1,0 +1,537 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+05/08/2019   8:44 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Political participation equivalence testing Estonia - scalar;
+
+  DATA: FILE = "data4.dat";
+
+  VARIABLE:
+  NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+       cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+       pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+       w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+       sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+       trstprt trstep trstun comp;
+
+  USEVARIABLES = wrkprty wrkorg badge sgnptit
+       pbldmn pstplonl
+       w5q32 w5q33 w5q34 w5q35 w5q36 w5q37;
+
+  CATEGORICAL = wrkprty wrkorg badge sgnptit
+       pbldmn pstplonl
+       w5q32 w5q33 w5q34 w5q35 w5q36 w5q37;
+
+  MISSING=.;
+
+  USEOBSERVATIONS ARE w5part EQ 1 AND cntry EQ 1;
+
+
+
+   Model:
+
+   phy_part_ess BY
+      wrkprty (a)
+      wrkorg (b)
+      badge (c)
+      sgnptit (d)
+      pbldmn (e)
+      pstplonl (f);
+
+   phy_part_cro BY
+       w5q32 (a)
+       w5q33 (b)
+       w5q34 (c)
+       w5q35 (d)
+       w5q36 (e)
+       w5q37 (f);
+
+
+      [wrkprty$1] (g);
+      [wrkorg$1] ;
+      [badge$1] (i);
+      [sgnptit$1] (j);
+      [pbldmn$1] (k);
+      [pstplonl$1] (l);
+
+       [w5q32$1] (g);
+       [w5q33$1] (h);
+       [w5q34$1] (i);
+       [w5q35$1] (j);
+       [w5q36$1] (k);
+       [w5q37$1] (l);
+
+
+
+      w5q32 WITH wrkprty;
+      w5q33 WITH wrkorg;
+      w5q34 WITH badge;
+      w5q35 WITH sgnptit;
+      w5q36 WITH pbldmn;
+      w5q37 WITH pstplonl;
+
+
+   Output:
+      STANDARDIZED(STDYX) MODINDICES(.1) ;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Political participation equivalence testing Estonia - scalar;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         601
+
+Number of dependent variables                                   12
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   WRKPRTY     WRKORG      BADGE       SGNPTIT     PBLDMN      PSTPLONL
+   W5Q32       W5Q33       W5Q34       W5Q35       W5Q36       W5Q37
+
+Continuous latent variables
+   PHY_PART    PHY_PART
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  data4.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             6
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              WRKPRTY       WRKORG        BADGE         SGNPTIT       PBLDMN
+              ________      ________      ________      ________      ________
+ WRKPRTY        0.998
+ WRKORG         0.997         0.998
+ BADGE          0.998         0.997         0.998
+ SGNPTIT        0.997         0.997         0.997         0.998
+ PBLDMN         0.998         0.998         0.998         0.998         1.000
+ PSTPLONL       0.998         0.998         0.998         0.998         1.000
+ W5Q32          0.972         0.972         0.972         0.973         0.973
+ W5Q33          0.972         0.972         0.972         0.973         0.973
+ W5Q34          0.972         0.972         0.972         0.973         0.973
+ W5Q35          0.972         0.972         0.972         0.973         0.973
+ W5Q36          0.972         0.972         0.972         0.973         0.973
+ W5Q37          0.968         0.968         0.968         0.970         0.970
+
+
+           Covariance Coverage
+              PSTPLONL      W5Q32         W5Q33         W5Q34         W5Q35
+              ________      ________      ________      ________      ________
+ PSTPLONL       1.000
+ W5Q32          0.973         0.973
+ W5Q33          0.973         0.973         0.973
+ W5Q34          0.973         0.973         0.973         0.973
+ W5Q35          0.973         0.973         0.973         0.973         0.973
+ W5Q36          0.973         0.973         0.973         0.973         0.973
+ W5Q37          0.970         0.970         0.970         0.970         0.970
+
+
+           Covariance Coverage
+              W5Q36         W5Q37
+              ________      ________
+ W5Q36          0.973
+ W5Q37          0.970         0.970
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    WRKPRTY
+      Category 1    0.045           27.000
+      Category 2    0.955          573.000
+    WRKORG
+      Category 1    0.093           56.000
+      Category 2    0.907          544.000
+    BADGE
+      Category 1    0.083           50.000
+      Category 2    0.917          550.000
+    SGNPTIT
+      Category 1    0.207          124.000
+      Category 2    0.793          476.000
+    PBLDMN
+      Category 1    0.030           18.000
+      Category 2    0.970          583.000
+    PSTPLONL
+      Category 1    0.193          116.000
+      Category 2    0.807          485.000
+    W5Q32
+      Category 1    0.044           26.000
+      Category 2    0.956          559.000
+    W5Q33
+      Category 1    0.156           91.000
+      Category 2    0.844          494.000
+    W5Q34
+      Category 1    0.103           60.000
+      Category 2    0.897          525.000
+    W5Q35
+      Category 1    0.181          106.000
+      Category 2    0.819          479.000
+    W5Q36
+      Category 1    0.019           11.000
+      Category 2    0.981          574.000
+    W5Q37
+      Category 1    0.153           89.000
+      Category 2    0.847          494.000
+
+
+     WARNING:  THE BIVARIATE TABLE OF W5Q36 AND WRKORG HAS AN EMPTY CELL.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       21
+
+Chi-Square Test of Model Fit
+
+          Value                            102.239*
+          Degrees of Freedom                    57
+          P-Value                           0.0002
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.036
+          90 Percent C.I.                    0.025  0.048
+          Probability RMSEA <= .05           0.979
+
+CFI/TLI
+
+          CFI                                0.932
+          TLI                                0.921
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            729.475
+          Degrees of Freedom                    66
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.108
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.78922802D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ PHY_PART BY
+    WRKPRTY            1.000      0.000    999.000    999.000
+    WRKORG             0.861      0.121      7.130      0.000
+    BADGE              0.888      0.126      7.043      0.000
+    SGNPTIT            0.892      0.154      5.778      0.000
+    PBLDMN             0.852      0.162      5.241      0.000
+    PSTPLONL           0.960      0.120      7.980      0.000
+
+ PHY_PART BY
+    W5Q32              1.000      0.000    999.000    999.000
+    W5Q33              0.861      0.121      7.130      0.000
+    W5Q34              0.888      0.126      7.043      0.000
+    W5Q35              0.892      0.154      5.778      0.000
+    W5Q36              0.852      0.162      5.241      0.000
+    W5Q37              0.960      0.120      7.980      0.000
+
+ PHY_PART WITH
+    PHY_PART_E         0.347      0.076      4.580      0.000
+
+ W5Q32    WITH
+    WRKPRTY            0.302      0.097      3.125      0.002
+
+ W5Q33    WITH
+    WRKORG             0.264      0.085      3.093      0.002
+
+ W5Q34    WITH
+    BADGE              0.247      0.092      2.686      0.007
+
+ W5Q35    WITH
+    SGNPTIT            0.299      0.073      4.094      0.000
+
+ W5Q36    WITH
+    PBLDMN             0.302      0.109      2.770      0.006
+
+ W5Q37    WITH
+    PSTPLONL           0.354      0.070      5.040      0.000
+
+ Thresholds
+    WRKPRTY$1         -1.698      0.073    -23.325      0.000
+    WRKORG$1          -1.321      0.071    -18.550      0.000
+    BADGE$1           -1.322      0.057    -23.208      0.000
+    SGNPTIT$1         -0.862      0.048    -17.787      0.000
+    PBLDMN$1          -1.963      0.086    -22.926      0.000
+    PSTPLONL$1        -0.940      0.051    -18.393      0.000
+    W5Q32$1           -1.698      0.073    -23.325      0.000
+    W5Q33$1           -1.013      0.063    -16.145      0.000
+    W5Q34$1           -1.322      0.057    -23.208      0.000
+    W5Q35$1           -0.862      0.048    -17.787      0.000
+    W5Q36$1           -1.963      0.086    -22.926      0.000
+    W5Q37$1           -0.940      0.051    -18.393      0.000
+
+ Variances
+    PHY_PART_E         0.482      0.096      4.996      0.000
+    PHY_PART_C         0.466      0.099      4.721      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ PHY_PART BY
+    WRKPRTY            0.694      0.069      9.992      0.000
+    WRKORG             0.597      0.060     10.033      0.000
+    BADGE              0.616      0.070      8.822      0.000
+    SGNPTIT            0.619      0.069      8.979      0.000
+    PBLDMN             0.591      0.103      5.718      0.000
+    PSTPLONL           0.666      0.058     11.416      0.000
+
+ PHY_PART BY
+    W5Q32              0.683      0.072      9.442      0.000
+    W5Q33              0.588      0.056     10.565      0.000
+    W5Q34              0.606      0.066      9.203      0.000
+    W5Q35              0.609      0.064      9.460      0.000
+    W5Q36              0.581      0.113      5.147      0.000
+    W5Q37              0.656      0.066      9.905      0.000
+
+ PHY_PART WITH
+    PHY_PART_E         0.732      0.058     12.539      0.000
+
+ W5Q32    WITH
+    WRKPRTY            0.573      0.171      3.359      0.001
+
+ W5Q33    WITH
+    WRKORG             0.407      0.121      3.362      0.001
+
+ W5Q34    WITH
+    BADGE              0.394      0.133      2.954      0.003
+
+ W5Q35    WITH
+    SGNPTIT            0.480      0.096      4.983      0.000
+
+ W5Q36    WITH
+    PBLDMN             0.460      0.199      2.318      0.020
+
+ W5Q37    WITH
+    PSTPLONL           0.628      0.097      6.509      0.000
+
+ Thresholds
+    WRKPRTY$1         -1.698      0.073    -23.325      0.000
+    WRKORG$1          -1.321      0.071    -18.550      0.000
+    BADGE$1           -1.322      0.057    -23.208      0.000
+    SGNPTIT$1         -0.862      0.048    -17.787      0.000
+    PBLDMN$1          -1.963      0.086    -22.926      0.000
+    PSTPLONL$1        -0.940      0.051    -18.393      0.000
+    W5Q32$1           -1.698      0.073    -23.325      0.000
+    W5Q33$1           -1.013      0.063    -16.145      0.000
+    W5Q34$1           -1.322      0.057    -23.208      0.000
+    W5Q35$1           -0.862      0.048    -17.787      0.000
+    W5Q36$1           -1.963      0.086    -22.926      0.000
+    W5Q37$1           -0.940      0.051    -18.393      0.000
+
+ Variances
+    PHY_PART_E         1.000      0.000    999.000    999.000
+    PHY_PART_C         1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    WRKPRTY            0.482      0.096      4.996      0.000      0.518
+    WRKORG             0.357      0.071      5.016      0.000      0.643
+    BADGE              0.380      0.086      4.411      0.000      0.620
+    SGNPTIT            0.383      0.085      4.490      0.000      0.617
+    PBLDMN             0.349      0.122      2.859      0.004      0.651
+    PSTPLONL           0.444      0.078      5.708      0.000      0.556
+    W5Q32              0.466      0.099      4.721      0.000      0.534
+    W5Q33              0.345      0.065      5.283      0.000      0.655
+    W5Q34              0.368      0.080      4.602      0.000      0.632
+    W5Q35              0.371      0.078      4.730      0.000      0.629
+    W5Q36              0.338      0.131      2.573      0.010      0.662
+    W5Q37              0.430      0.087      4.953      0.000      0.570
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.774E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates and residual covariances among observed dependent
+variables may not be included.  To include these, request MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index     0.100
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+BY Statements
+
+PHY_PART BY WRKPRTY                0.896    -0.156     -0.108       -0.108
+PHY_PART BY WRKORG                 0.168    -0.030     -0.021       -0.021
+PHY_PART BY SGNPTIT                3.155     0.112      0.078        0.078
+PHY_PART BY PBLDMN                 0.319    -0.047     -0.032       -0.032
+PHY_PART BY W5Q32                  0.211     0.070      0.049        0.049
+PHY_PART BY W5Q35                  1.414    -0.140     -0.097       -0.097
+PHY_PART BY W5Q37                  0.918     0.116      0.080        0.080
+PHY_PART BY WRKPRTY                0.912    -0.152     -0.103       -0.103
+PHY_PART BY WRKORG                 0.600    -0.102     -0.069       -0.069
+PHY_PART BY SGNPTIT                2.958     0.209      0.143        0.143
+PHY_PART BY PBLDMN                 0.107    -0.058     -0.040       -0.040
+PHY_PART BY W5Q32                  0.898     0.156      0.107        0.107
+PHY_PART BY W5Q33                  0.169     0.026      0.018        0.018
+PHY_PART BY W5Q35                  3.143    -0.122     -0.083       -0.083
+PHY_PART BY W5Q36                  0.321     0.058      0.040        0.040
+
+WITH Statements
+
+WRKORG   WITH WRKPRTY              3.449     0.208      0.208        0.361
+BADGE    WITH WRKPRTY              0.900    -0.137     -0.137       -0.243
+BADGE    WITH WRKORG               0.643     0.089      0.089        0.141
+SGNPTIT  WITH WRKORG               2.401    -0.165     -0.165       -0.262
+SGNPTIT  WITH BADGE                0.250    -0.052     -0.052       -0.085
+PBLDMN   WITH WRKPRTY              1.085    -0.207     -0.207       -0.357
+PBLDMN   WITH WRKORG               1.472    -0.210     -0.210       -0.325
+PBLDMN   WITH BADGE                0.339     0.084      0.084        0.133
+PBLDMN   WITH SGNPTIT              1.036     0.129      0.129        0.203
+PSTPLONL WITH WRKPRTY              2.248    -0.193     -0.193       -0.360
+PSTPLONL WITH BADGE                0.236    -0.051     -0.051       -0.087
+PSTPLONL WITH SGNPTIT              3.350     0.151      0.151        0.257
+PSTPLONL WITH PBLDMN               1.131    -0.155     -0.155       -0.258
+W5Q32    WITH WRKORG               2.083     0.176      0.176        0.300
+W5Q32    WITH BADGE                0.287     0.072      0.072        0.125
+W5Q32    WITH SGNPTIT              4.655    -0.296     -0.296       -0.516
+W5Q32    WITH PSTPLONL             0.876    -0.121     -0.121       -0.222
+W5Q33    WITH WRKPRTY              0.528     0.086      0.086        0.148
+W5Q33    WITH BADGE                0.191     0.046      0.046        0.072
+W5Q33    WITH SGNPTIT              0.299     0.048      0.048        0.076
+W5Q33    WITH PBLDMN               0.201    -0.067     -0.067       -0.103
+W5Q33    WITH PSTPLONL             3.433    -0.179     -0.179       -0.297
+W5Q33    WITH W5Q32                5.916     0.254      0.254        0.429
+W5Q34    WITH WRKPRTY              0.215     0.060      0.060        0.105
+W5Q34    WITH WRKORG               0.651    -0.098     -0.098       -0.154
+W5Q34    WITH SGNPTIT              0.326    -0.058     -0.058       -0.092
+W5Q34    WITH PBLDMN               0.116     0.051      0.051        0.080
+W5Q34    WITH PSTPLONL             0.600    -0.079     -0.079       -0.134
+W5Q34    WITH W5Q32                2.753     0.189      0.189        0.326
+W5Q34    WITH W5Q33                0.761     0.086      0.086        0.134
+W5Q35    WITH WRKPRTY              3.568    -0.259     -0.259       -0.454
+W5Q35    WITH WRKORG               1.333    -0.126     -0.126       -0.198
+W5Q35    WITH BADGE                3.609    -0.217     -0.217       -0.347
+W5Q35    WITH PBLDMN               0.417     0.087      0.087        0.135
+W5Q35    WITH PSTPLONL             7.366     0.213      0.213        0.359
+W5Q35    WITH W5Q32                5.139    -0.317     -0.317       -0.547
+W5Q35    WITH W5Q33                0.642    -0.077     -0.077       -0.121
+W5Q35    WITH W5Q34                1.002    -0.106     -0.106       -0.168
+W5Q36    WITH WRKORG               6.633    -0.418     -0.418       -0.641
+W5Q36    WITH BADGE                0.130    -0.071     -0.071       -0.111
+W5Q36    WITH SGNPTIT              0.202    -0.076     -0.076       -0.118
+W5Q36    WITH W5Q32                1.782     0.210      0.210        0.353
+W5Q36    WITH W5Q33                0.748     0.130      0.130        0.197
+W5Q36    WITH W5Q34                0.187    -0.079     -0.079       -0.121
+W5Q36    WITH W5Q35                1.322     0.166      0.166        0.257
+W5Q37    WITH WRKPRTY              0.625    -0.104     -0.104       -0.191
+W5Q37    WITH BADGE                1.516     0.123      0.123        0.207
+W5Q37    WITH SGNPTIT              9.738     0.244      0.244        0.412
+W5Q37    WITH PBLDMN               0.383    -0.093     -0.093       -0.153
+W5Q37    WITH W5Q32                1.642    -0.172     -0.172       -0.311
+W5Q37    WITH W5Q33                3.773    -0.202     -0.202       -0.330
+W5Q37    WITH W5Q35                0.133    -0.035     -0.035       -0.058
+
+Means/Intercepts/Thresholds
+
+[ BADGE    ]                       1.197     0.116      0.116        0.116
+[ SGNPTIT  ]                       1.132    -0.093     -0.093       -0.093
+[ PBLDMN   ]                       1.415    -0.198     -0.198       -0.198
+[ PSTPLONL ]                       3.101    -0.158     -0.158       -0.158
+[ W5Q34    ]                       1.197    -0.116     -0.116       -0.116
+[ W5Q35    ]                       1.132     0.093      0.093        0.093
+[ W5Q36    ]                       1.416     0.198      0.198        0.198
+[ W5Q37    ]                       3.101     0.158      0.158        0.158
+[ PHY_PART ]                       1.953    -0.072     -0.104       -0.104
+[ PHY_PART ]                       1.953     0.072      0.106        0.106
+[ BADGE$1  ]                       1.197    -0.061     -0.061       -0.061
+[ SGNPTIT$ ]                       1.132     0.044      0.044        0.044
+[ PBLDMN$1 ]                       1.415     0.081      0.081        0.081
+[ PSTPLONL ]                       3.101     0.073      0.073        0.073
+[ W5Q34$1  ]                       1.197     0.055      0.055        0.055
+[ W5Q35$1  ]                       1.132    -0.048     -0.048       -0.048
+[ W5Q36$1  ]                       1.416    -0.116     -0.116       -0.116
+[ W5Q37$1  ]                       3.101    -0.085     -0.085       -0.085
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\msassac6\dropbox (the university of manchester)\papers\melanie revilla\ess_cronos\mplus\pol_part_ee_scalar1
+
+     Beginning Time:  08:44:14
+        Ending Time:  08:44:15
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

@@ -1,0 +1,405 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+05/07/2019  10:08 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Political ability equivalence testing SI - configural;
+
+  DATA: FILE = "data4.dat";
+
+  VARIABLE:
+  NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+       cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+       pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+       w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+       sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+       trstprt trstep trstun comp;
+
+  USEVARIABLES = psppsgva actrolga psppipla
+       cptppola w5q38 w5q39 w5q40 w5q41;
+
+  MISSING=.;
+
+  USEOBSERVATIONS ARE w5part EQ 1 AND cntry EQ 3;
+
+
+
+   Model:
+
+   phy_ab_ess BY
+      psppsgva (a)
+      actrolga (b)
+      psppipla (c)
+      cptppola (d);
+
+   phy_ab_cro BY
+      w5q38 (e)
+      w5q39 (f)
+      w5q40 (g)
+      w5q41 (h);
+
+      psppsgva WITH w5q38;
+      actrolga WITH w5q39;
+      psppipla WITH w5q40;
+      cptppola WITH w5q41;
+
+
+   Output:
+      STANDARDIZED(STDYX) MODINDICES(.1) ;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Political ability equivalence testing SI - configural;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         615
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   PSPPSGVA    ACTROLGA    PSPPIPLA    CPTPPOLA    W5Q38       W5Q39
+   W5Q40       W5Q41
+
+Continuous latent variables
+   PHY_AB_E    PHY_AB_C
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  data4.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            16
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PSPPSGVA      ACTROLGA      PSPPIPLA      CPTPPOLA      W5Q38
+              ________      ________      ________      ________      ________
+ PSPPSGVA       0.995
+ ACTROLGA       0.985         0.989
+ PSPPIPLA       0.989         0.984         0.992
+ CPTPPOLA       0.982         0.984         0.980         0.985
+ W5Q38          0.985         0.979         0.982         0.976         0.990
+ W5Q39          0.972         0.969         0.969         0.966         0.977
+ W5Q40          0.980         0.974         0.977         0.971         0.985
+ W5Q41          0.974         0.971         0.971         0.967         0.979
+
+
+           Covariance Coverage
+              W5Q39         W5Q40         W5Q41
+              ________      ________      ________
+ W5Q39          0.977
+ W5Q40          0.974         0.985
+ W5Q41          0.974         0.977         0.979
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     PSPPSGVA              1.871       0.748       1.000   34.15%       1.000      2.000      2.000
+             612.000       0.606       0.789       5.000    0.65%       2.000      2.000
+     ACTROLGA              2.033       0.758       1.000   35.53%       1.000      2.000      2.000
+             608.000       0.956       0.184       5.000    2.14%       2.000      3.000
+     PSPPIPLA              1.943       0.453       1.000   30.82%       1.000      2.000      2.000
+             610.000       0.608      -0.236       5.000    0.16%       2.000      3.000
+     CPTPPOLA              2.102       0.695       1.000   30.86%       1.000      2.000      2.000
+             606.000       0.933       0.222       5.000    2.31%       2.000      3.000
+     W5Q38                 1.882       0.674       1.000   36.95%       1.000      2.000      2.000
+             609.000       0.686       0.009       5.000    0.33%       2.000      3.000
+     W5Q39                 2.166       0.824       1.000   28.79%       1.000      2.000      2.000
+             601.000       1.044       0.475       5.000    4.16%       2.000      3.000
+     W5Q40                 1.914       0.855       1.000   33.17%       1.000      2.000      2.000
+             606.000       0.676       1.085       5.000    1.16%       2.000      3.000
+     W5Q41                 2.040       0.854       1.000   33.55%       1.000      2.000      2.000
+             602.000       0.952       0.433       5.000    2.33%       2.000      3.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       29
+
+Loglikelihood
+
+          H0 Value                       -5674.867
+          H1 Value                       -5340.390
+
+Information Criteria
+
+          Akaike (AIC)                   11407.735
+          Bayesian (BIC)                 11535.962
+          Sample-Size Adjusted BIC       11443.893
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            668.955
+          Degrees of Freedom                    15
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.266
+          90 Percent C.I.                    0.249  0.284
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.659
+          TLI                                0.363
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1944.001
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.146
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ PHY_AB_E BY
+    PSPPSGVA           1.000      0.000    999.000    999.000
+    ACTROLGA           0.923      0.122      7.595      0.000
+    PSPPIPLA           1.137      0.084     13.560      0.000
+    CPTPPOLA           0.910      0.120      7.592      0.000
+
+ PHY_AB_C BY
+    W5Q38              1.000      0.000    999.000    999.000
+    W5Q39              0.560      0.072      7.811      0.000
+    W5Q40              1.154      0.078     14.787      0.000
+    W5Q41              0.564      0.069      8.124      0.000
+
+ PHY_AB_C WITH
+    PHY_AB_ESS         0.169      0.022      7.621      0.000
+
+ PSPPSGVA WITH
+    W5Q38              0.044      0.017      2.636      0.008
+
+ ACTROLGA WITH
+    W5Q39              0.425      0.040     10.628      0.000
+
+ PSPPIPLA WITH
+    W5Q40             -0.052      0.018     -2.935      0.003
+
+ CPTPPOLA WITH
+    W5Q41              0.366      0.037      9.869      0.000
+
+ Intercepts
+    PSPPSGVA           1.871      0.031     59.532      0.000
+    ACTROLGA           2.027      0.040     51.312      0.000
+    PSPPIPLA           1.941      0.032     61.610      0.000
+    CPTPPOLA           2.097      0.039     53.632      0.000
+    W5Q38              1.881      0.034     56.110      0.000
+    W5Q39              2.167      0.042     51.958      0.000
+    W5Q40              1.915      0.033     57.214      0.000
+    W5Q41              2.036      0.040     50.901      0.000
+
+ Variances
+    PHY_AB_ESS         0.267      0.035      7.661      0.000
+    PHY_AB_CRO         0.391      0.041      9.594      0.000
+
+ Residual Variances
+    PSPPSGVA           0.338      0.028     12.145      0.000
+    ACTROLGA           0.725      0.056     13.028      0.000
+    PSPPIPLA           0.262      0.036      7.219      0.000
+    CPTPPOLA           0.709      0.054     13.226      0.000
+    W5Q38              0.294      0.027     11.074      0.000
+    W5Q39              0.930      0.055     16.769      0.000
+    W5Q40              0.160      0.033      4.820      0.000
+    W5Q41              0.843      0.051     16.686      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ PHY_AB_E BY
+    PSPPSGVA           0.664      0.034     19.806      0.000
+    ACTROLGA           0.489      0.048     10.205      0.000
+    PSPPIPLA           0.754      0.040     18.812      0.000
+    CPTPPOLA           0.488      0.047     10.310      0.000
+
+ PHY_AB_C BY
+    W5Q38              0.755      0.026     28.769      0.000
+    W5Q39              0.341      0.040      8.636      0.000
+    W5Q40              0.875      0.029     30.540      0.000
+    W5Q41              0.359      0.040      9.009      0.000
+
+ PHY_AB_C WITH
+    PHY_AB_ESS         0.523      0.043     12.172      0.000
+
+ PSPPSGVA WITH
+    W5Q38              0.140      0.051      2.741      0.006
+
+ ACTROLGA WITH
+    W5Q39              0.518      0.033     15.862      0.000
+
+ PSPPIPLA WITH
+    W5Q40             -0.255      0.104     -2.448      0.014
+
+ CPTPPOLA WITH
+    W5Q41              0.474      0.034     13.761      0.000
+
+ Intercepts
+    PSPPSGVA           2.405      0.080     30.211      0.000
+    ACTROLGA           2.078      0.071     29.226      0.000
+    PSPPIPLA           2.492      0.082     30.436      0.000
+    CPTPPOLA           2.174      0.074     29.518      0.000
+    W5Q38              2.272      0.077     29.644      0.000
+    W5Q39              2.113      0.073     28.919      0.000
+    W5Q40              2.320      0.078     29.701      0.000
+    W5Q41              2.069      0.073     28.498      0.000
+
+ Variances
+    PHY_AB_ESS         1.000      0.000    999.000    999.000
+    PHY_AB_CRO         1.000      0.000    999.000    999.000
+
+ Residual Variances
+    PSPPSGVA           0.559      0.045     12.536      0.000
+    ACTROLGA           0.761      0.047     16.262      0.000
+    PSPPIPLA           0.431      0.060      7.137      0.000
+    CPTPPOLA           0.762      0.046     16.527      0.000
+    W5Q38              0.429      0.040     10.819      0.000
+    W5Q39              0.884      0.027     32.761      0.000
+    W5Q40              0.235      0.050      4.694      0.000
+    W5Q41              0.871      0.029     30.516      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    PSPPSGVA           0.441      0.045      9.903      0.000
+    ACTROLGA           0.239      0.047      5.102      0.000
+    PSPPIPLA           0.569      0.060      9.406      0.000
+    CPTPPOLA           0.238      0.046      5.155      0.000
+    W5Q38              0.571      0.040     14.384      0.000
+    W5Q39              0.116      0.027      4.318      0.000
+    W5Q40              0.765      0.050     15.270      0.000
+    W5Q41              0.129      0.029      4.505      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.394E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index     0.100
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+BY Statements
+
+PHY_AB_E BY W5Q39                  0.158     0.045      0.023        0.022
+PHY_AB_E BY W5Q40                  0.324    -0.058     -0.030       -0.036
+PHY_AB_C BY ACTROLGA               0.683    -0.068     -0.043       -0.044
+PHY_AB_C BY PSPPIPLA               3.790     0.157      0.098        0.126
+PHY_AB_C BY CPTPPOLA               3.686    -0.157     -0.098       -0.102
+
+WITH Statements
+
+ACTROLGA WITH PSPPSGVA            16.895    -0.102     -0.102       -0.207
+PSPPIPLA WITH PSPPSGVA            96.745     0.303      0.303        1.018
+PSPPIPLA WITH ACTROLGA            48.053    -0.195     -0.195       -0.449
+CPTPPOLA WITH PSPPSGVA            35.296    -0.148     -0.148       -0.302
+CPTPPOLA WITH ACTROLGA           187.508     0.365      0.365        0.510
+CPTPPOLA WITH PSPPIPLA            20.362    -0.127     -0.127       -0.294
+W5Q38    WITH ACTROLGA             0.440     0.013      0.013        0.028
+W5Q38    WITH CPTPPOLA             0.158    -0.008     -0.008       -0.017
+W5Q39    WITH PSPPIPLA             5.575     0.056      0.056        0.114
+W5Q39    WITH CPTPPOLA             8.499    -0.081     -0.081       -0.100
+W5Q39    WITH W5Q38               16.017    -0.098     -0.098       -0.187
+W5Q40    WITH PSPPSGVA             0.132    -0.009     -0.009       -0.037
+W5Q40    WITH W5Q38               81.750     0.627      0.627        2.890
+W5Q40    WITH W5Q39                5.824    -0.067     -0.067       -0.175
+W5Q41    WITH PSPPSGVA             1.244     0.025      0.025        0.047
+W5Q41    WITH ACTROLGA             6.893    -0.070     -0.070       -0.089
+W5Q41    WITH PSPPIPLA             1.143     0.025      0.025        0.053
+W5Q41    WITH W5Q38                8.091    -0.069     -0.069       -0.139
+W5Q41    WITH W5Q39              175.057     0.386      0.386        0.436
+W5Q41    WITH W5Q40               12.038    -0.098     -0.098       -0.266
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\msassac6\dropbox (the university of manchester)\papers\melanie revilla\ess_cronos\mplus\pol_ab_si_config.dg
+
+     Beginning Time:  10:08:38
+        Ending Time:  10:08:38
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

@@ -1,0 +1,530 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+05/07/2019  11:39 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Trust institutions equivalence testing SI - metric;
+
+  DATA: FILE = "data4.dat";
+
+  VARIABLE:
+  NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+       cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+       pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+       w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+       sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+       trstprt trstep trstun comp;
+
+  USEVARIABLES = trstlgl trstplc trstplt
+       trstprt trstep trstun
+       w6q9 w6q10 w6q11 w6q12 w6q13 w6q14;
+
+  MISSING=.;
+
+  USEOBSERVATIONS ARE w6part EQ 1 AND cntry EQ 3;
+
+
+
+   Model:
+
+  trust_ess BY
+      trstlgl (a)
+      trstplc (b)
+      trstplt (c)
+      trstprt (d)
+      trstep (e)
+      trstun (f);
+
+  trust_cro BY
+      w6q9 (a)
+      w6q10 (b)
+      w6q11 (c)
+      w6q12 (d)
+      w6q13 (e)
+      w6q14 (f);
+
+      trstlgl WITH w6q9;
+      trstplc WITH w6q10;
+      trstplt WITH w6q11;
+      trstprt WITH w6q12;
+      trstep WITH w6q13;
+      trstun WITH w6q14;
+
+   Output:
+      STANDARDIZED(STDYX) MODINDICES(.1) ;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Trust institutions equivalence testing SI - metric;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         571
+
+Number of dependent variables                                   12
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   TRSTLGL     TRSTPLC     TRSTPLT     TRSTPRT     TRSTEP      TRSTUN
+   W6Q9        W6Q10       W6Q11       W6Q12       W6Q13       W6Q14
+
+Continuous latent variables
+   TRUST_ES    TRUST_CR
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  data4.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            18
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              TRSTLGL       TRSTPLC       TRSTPLT       TRSTPRT       TRSTEP
+              ________      ________      ________      ________      ________
+ TRSTLGL        0.986
+ TRSTPLC        0.984         0.995
+ TRSTPLT        0.981         0.991         0.991
+ TRSTPRT        0.982         0.989         0.988         0.991
+ TRSTEP         0.963         0.968         0.967         0.968         0.972
+ TRSTUN         0.954         0.954         0.953         0.954         0.942
+ W6Q9           0.947         0.954         0.951         0.951         0.933
+ W6Q10          0.947         0.954         0.951         0.951         0.933
+ W6Q11          0.947         0.954         0.951         0.951         0.933
+ W6Q12          0.947         0.954         0.951         0.951         0.933
+ W6Q13          0.947         0.954         0.951         0.951         0.933
+ W6Q14          0.947         0.954         0.951         0.951         0.933
+
+
+           Covariance Coverage
+              TRSTUN        W6Q9          W6Q10         W6Q11         W6Q12
+              ________      ________      ________      ________      ________
+ TRSTUN         0.956
+ W6Q9           0.919         0.960
+ W6Q10          0.919         0.960         0.960
+ W6Q11          0.919         0.960         0.960         0.960
+ W6Q12          0.919         0.960         0.960         0.960         0.960
+ W6Q13          0.919         0.960         0.960         0.960         0.960
+ W6Q14          0.919         0.960         0.960         0.960         0.960
+
+
+           Covariance Coverage
+              W6Q13         W6Q14
+              ________      ________
+ W6Q13          0.960
+ W6Q14          0.960         0.960
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TRSTLGL               3.840       0.155       0.000    9.95%       2.000      3.000      4.000
+             563.000       5.765      -0.851       9.000    2.49%       5.000      6.000
+     TRSTPLC               6.139      -0.555       0.000    1.94%       4.000      6.000      6.000
+             568.000       4.873       0.019      10.000    4.05%       7.000      8.000
+     TRSTPLT               2.429       0.405       0.000   25.09%       0.000      2.000      2.000
+             566.000       3.892      -0.714       8.000    0.35%       3.000      4.000
+     TRSTPRT               2.435       0.386       0.000   22.44%       0.000      2.000      2.000
+             566.000       3.652      -0.667       9.000    0.18%       3.000      4.000
+     TRSTEP                4.063      -0.030       0.000   10.09%       2.000      3.000      4.000
+             555.000       5.609      -0.757      10.000    0.36%       5.000      6.000
+     TRSTUN                4.555      -0.124       0.000    8.61%       3.000      4.000      5.000
+             546.000       5.837      -0.537      10.000    1.47%       5.000      7.000
+     W6Q9                  3.296       0.261       0.000   18.80%       1.000      3.000      3.000
+             548.000       5.792      -0.765      10.000    0.36%       4.000      5.000
+     W6Q10                 5.425      -0.363       0.000    4.56%       3.000      5.000      5.000
+             548.000       6.288      -0.566      10.000    3.28%       6.000      8.000
+     W6Q11                 2.066       0.716       0.000   35.95%       0.000      1.000      2.000
+             548.000       4.116      -0.152      10.000    0.18%       3.000      4.000
+     W6Q12                 2.005       0.743       0.000   34.67%       0.000      1.000      2.000
+             548.000       3.900      -0.122      10.000    0.18%       2.000      4.000
+     W6Q13                 3.396       0.142       0.000   17.34%       1.000      3.000      3.000
+             548.000       5.400      -0.705      10.000    0.18%       4.000      5.000
+     W6Q14                 3.670       0.031       0.000   14.23%       1.000      3.000      4.000
+             548.000       5.411      -0.660      10.000    0.55%       5.000      5.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       38
+
+Loglikelihood
+
+          H0 Value                      -12748.425
+          H1 Value                      -12347.634
+
+Information Criteria
+
+          Akaike (AIC)                   25572.850
+          Bayesian (BIC)                 25738.051
+          Sample-Size Adjusted BIC       25617.418
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            801.583
+          Degrees of Freedom                    52
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.159
+          90 Percent C.I.                    0.149  0.169
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.843
+          TLI                                0.800
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4831.259
+          Degrees of Freedom                    66
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.086
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ TRUST_ES BY
+    TRSTLGL            1.000      0.000    999.000    999.000
+    TRSTPLC            0.700      0.051     13.721      0.000
+    TRSTPLT            1.227      0.052     23.744      0.000
+    TRSTPRT            1.167      0.050     23.261      0.000
+    TRSTEP             1.072      0.054     19.737      0.000
+    TRSTUN             0.982      0.054     18.173      0.000
+
+ TRUST_CR BY
+    W6Q9               1.000      0.000    999.000    999.000
+    W6Q10              0.700      0.051     13.721      0.000
+    W6Q11              1.227      0.052     23.744      0.000
+    W6Q12              1.167      0.050     23.261      0.000
+    W6Q13              1.072      0.054     19.737      0.000
+    W6Q14              0.982      0.054     18.173      0.000
+
+ TRUST_CR WITH
+    TRUST_ESS          1.270      0.158      8.064      0.000
+
+ TRSTLGL  WITH
+    W6Q9               1.453      0.161      9.020      0.000
+
+ TRSTPLC  WITH
+    W6Q10              1.870      0.206      9.097      0.000
+
+ TRSTPLT  WITH
+    W6Q11             -0.005      0.041     -0.127      0.899
+
+ TRSTPRT  WITH
+    W6Q12              0.061      0.041      1.486      0.137
+
+ TRSTEP   WITH
+    W6Q13              1.129      0.137      8.243      0.000
+
+ TRSTUN   WITH
+    W6Q14              1.437      0.165      8.727      0.000
+
+ Intercepts
+    TRSTLGL            3.836      0.099     38.624      0.000
+    TRSTPLC            6.144      0.094     65.683      0.000
+    TRSTPLT            2.437      0.082     29.590      0.000
+    TRSTPRT            2.435      0.080     30.468      0.000
+    TRSTEP             4.060      0.099     41.083      0.000
+    TRSTUN             4.533      0.103     44.038      0.000
+    W6Q9               3.292      0.101     32.483      0.000
+    W6Q10              5.413      0.105     51.681      0.000
+    W6Q11              2.057      0.087     23.694      0.000
+    W6Q12              1.997      0.084     23.675      0.000
+    W6Q13              3.391      0.099     34.400      0.000
+    W6Q14              3.656      0.098     37.332      0.000
+
+ Variances
+    TRUST_ESS          2.235      0.224      9.993      0.000
+    TRUST_CRO          2.411      0.243      9.937      0.000
+
+ Residual Variances
+    TRSTLGL            3.351      0.211     15.863      0.000
+    TRSTPLC            3.883      0.235     16.511      0.000
+    TRSTPLT            0.495      0.056      8.779      0.000
+    TRSTPRT            0.589      0.055     10.703      0.000
+    TRSTEP             2.927      0.190     15.413      0.000
+    TRSTUN             3.737      0.237     15.741      0.000
+    W6Q9               3.268      0.209     15.604      0.000
+    W6Q10              4.881      0.302     16.165      0.000
+    W6Q11              0.542      0.063      8.594      0.000
+    W6Q12              0.655      0.061     10.788      0.000
+    W6Q13              2.602      0.175     14.848      0.000
+    W6Q14              2.976      0.196     15.212      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ TRUST_ES BY
+    TRSTLGL            0.633      0.023     27.191      0.000
+    TRSTPLC            0.469      0.028     16.547      0.000
+    TRSTPLT            0.934      0.008    111.535      0.000
+    TRSTPRT            0.915      0.009    101.683      0.000
+    TRSTEP             0.684      0.021     32.153      0.000
+    TRSTUN             0.605      0.024     25.686      0.000
+
+ TRUST_CR BY
+    W6Q9               0.652      0.023     28.104      0.000
+    W6Q10              0.441      0.029     15.442      0.000
+    W6Q11              0.933      0.009    109.005      0.000
+    W6Q12              0.913      0.009     99.708      0.000
+    W6Q13              0.718      0.021     34.662      0.000
+    W6Q14              0.662      0.024     27.916      0.000
+
+ TRUST_CR WITH
+    TRUST_ESS          0.547      0.033     16.558      0.000
+
+ TRSTLGL  WITH
+    W6Q9               0.439      0.037     11.992      0.000
+
+ TRSTPLC  WITH
+    W6Q10              0.430      0.036     12.011      0.000
+
+ TRSTPLT  WITH
+    W6Q11             -0.010      0.080     -0.127      0.899
+
+ TRSTPRT  WITH
+    W6Q12              0.098      0.065      1.507      0.132
+
+ TRSTEP   WITH
+    W6Q13              0.409      0.039     10.448      0.000
+
+ TRSTUN   WITH
+    W6Q14              0.431      0.038     11.387      0.000
+
+ Intercepts
+    TRSTLGL            1.623      0.060     27.058      0.000
+    TRSTPLC            2.754      0.088     31.315      0.000
+    TRSTPLT            1.241      0.055     22.520      0.000
+    TRSTPRT            1.278      0.056     22.970      0.000
+    TRSTEP             1.732      0.062     27.783      0.000
+    TRSTUN             1.867      0.066     28.249      0.000
+    W6Q9               1.381      0.057     24.390      0.000
+    W6Q10              2.199      0.074     29.717      0.000
+    W6Q11              1.007      0.052     19.398      0.000
+    W6Q12              1.006      0.052     19.469      0.000
+    W6Q13              1.463      0.059     24.955      0.000
+    W6Q14              1.588      0.061     26.019      0.000
+
+ Variances
+    TRUST_ESS          1.000      0.000    999.000    999.000
+    TRUST_CRO          1.000      0.000    999.000    999.000
+
+ Residual Variances
+    TRSTLGL            0.600      0.029     20.385      0.000
+    TRSTPLC            0.780      0.027     29.370      0.000
+    TRSTPLT            0.128      0.016      8.207      0.000
+    TRSTPRT            0.162      0.016      9.834      0.000
+    TRSTEP             0.533      0.029     18.318      0.000
+    TRSTUN             0.634      0.028     22.262      0.000
+    W6Q9               0.575      0.030     19.047      0.000
+    W6Q10              0.805      0.025     31.927      0.000
+    W6Q11              0.130      0.016      8.136      0.000
+    W6Q12              0.166      0.017      9.941      0.000
+    W6Q13              0.484      0.030     16.267      0.000
+    W6Q14              0.561      0.031     17.857      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    TRSTLGL            0.400      0.029     13.596      0.000
+    TRSTPLC            0.220      0.027      8.274      0.000
+    TRSTPLT            0.872      0.016     55.767      0.000
+    TRSTPRT            0.838      0.016     50.842      0.000
+    TRSTEP             0.467      0.029     16.076      0.000
+    TRSTUN             0.366      0.028     12.843      0.000
+    W6Q9               0.425      0.030     14.052      0.000
+    W6Q10              0.195      0.025      7.721      0.000
+    W6Q11              0.870      0.016     54.502      0.000
+    W6Q12              0.834      0.017     49.854      0.000
+    W6Q13              0.516      0.030     17.331      0.000
+    W6Q14              0.439      0.031     13.958      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.246E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index     0.100
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+BY Statements
+
+TRUST_ES BY TRSTLGL                0.670    -0.051     -0.076       -0.032
+TRUST_ES BY TRSTPLC                4.155    -0.063     -0.095       -0.042
+TRUST_ES BY TRSTPLT                0.729     0.018      0.028        0.014
+TRUST_ES BY TRSTPRT                0.149     0.008      0.012        0.006
+TRUST_ES BY TRSTEP                 0.221     0.016      0.023        0.010
+TRUST_ES BY TRSTUN                 0.478    -0.026     -0.039       -0.016
+TRUST_ES BY W6Q9                  10.055     0.160      0.239        0.100
+TRUST_ES BY W6Q10                  5.383     0.139      0.208        0.085
+TRUST_ES BY W6Q11                  1.041    -0.033     -0.050       -0.025
+TRUST_ES BY W6Q12                  3.166    -0.058     -0.086       -0.043
+TRUST_ES BY W6Q14                  0.551     0.036      0.054        0.024
+TRUST_CR BY TRSTLGL                0.146    -0.019     -0.029       -0.012
+TRUST_CR BY TRSTPLC                1.782    -0.069     -0.107       -0.048
+TRUST_CR BY TRSTPLT                0.940     0.030      0.046        0.023
+TRUST_CR BY TRSTPRT                0.950    -0.029     -0.045       -0.024
+TRUST_CR BY TRSTEP                 1.191     0.052      0.080        0.034
+TRUST_CR BY W6Q9                   0.670     0.051      0.079        0.033
+TRUST_CR BY W6Q10                  4.156     0.079      0.123        0.050
+TRUST_CR BY W6Q11                  0.730    -0.018     -0.027       -0.013
+TRUST_CR BY W6Q12                  0.149    -0.008     -0.012       -0.006
+TRUST_CR BY W6Q13                  0.221    -0.012     -0.019       -0.008
+TRUST_CR BY W6Q14                  0.479     0.018      0.028        0.012
+
+WITH Statements
+
+TRSTPLC  WITH TRSTLGL             98.520     1.291      1.291        0.358
+TRSTPLT  WITH TRSTLGL              4.169    -0.154     -0.154       -0.120
+TRSTPLT  WITH TRSTPLC              6.134    -0.186     -0.186       -0.134
+TRSTPRT  WITH TRSTLGL             24.514    -0.365     -0.365       -0.260
+TRSTPRT  WITH TRSTPLC             24.672    -0.367     -0.367       -0.243
+TRSTPRT  WITH TRSTPLT            176.714     1.038      1.038        1.923
+TRSTEP   WITH TRSTLGL             11.997     0.413      0.413        0.132
+TRSTEP   WITH TRSTPLC              4.765     0.274      0.274        0.081
+TRSTEP   WITH TRSTPLT             42.788    -0.492     -0.492       -0.409
+TRSTEP   WITH TRSTPRT              2.220    -0.109     -0.109       -0.083
+TRSTUN   WITH TRSTLGL              8.029     0.373      0.373        0.105
+TRSTUN   WITH TRSTPLC              3.895     0.275      0.275        0.072
+TRSTUN   WITH TRSTPLT             18.302    -0.338     -0.338       -0.249
+TRSTUN   WITH TRSTPRT             19.441    -0.342     -0.342       -0.230
+TRSTUN   WITH TRSTEP             124.995     1.420      1.420        0.429
+W6Q9     WITH TRSTPLC             12.812    -0.464     -0.464       -0.130
+W6Q9     WITH TRSTPLT              0.759     0.062      0.062        0.049
+W6Q9     WITH TRSTPRT              5.087     0.158      0.158        0.114
+W6Q9     WITH TRSTEP               0.363     0.072      0.072        0.023
+W6Q9     WITH TRSTUN               0.177    -0.055     -0.055       -0.016
+W6Q10    WITH TRSTLGL             22.300    -0.695     -0.695       -0.172
+W6Q10    WITH TRSTPLT              2.940     0.141      0.141        0.091
+W6Q10    WITH TRSTPRT              4.917     0.181      0.181        0.107
+W6Q10    WITH TRSTEP               1.879    -0.195     -0.195       -0.051
+W6Q10    WITH W6Q9                94.212     1.408      1.408        0.352
+W6Q11    WITH TRSTLGL              2.593     0.119      0.119        0.088
+W6Q11    WITH TRSTPLC              3.574     0.143      0.143        0.099
+W6Q11    WITH TRSTPRT             31.393    -0.316     -0.316       -0.560
+W6Q11    WITH TRSTEP               6.625     0.187      0.187        0.149
+W6Q11    WITH TRSTUN               4.202     0.162      0.162        0.114
+W6Q11    WITH W6Q9                 0.799    -0.069     -0.069       -0.052
+W6Q11    WITH W6Q10               11.317    -0.291     -0.291       -0.179
+W6Q12    WITH TRSTLGL              2.081     0.106      0.106        0.072
+W6Q12    WITH TRSTPLC              4.598     0.163      0.163        0.102
+W6Q12    WITH TRSTPLT             11.011    -0.189     -0.189       -0.332
+W6Q12    WITH TRSTEP               0.140    -0.027     -0.027       -0.019
+W6Q12    WITH TRSTUN               0.206     0.036      0.036        0.023
+W6Q12    WITH W6Q9                46.627    -0.520     -0.520       -0.355
+W6Q12    WITH W6Q10               34.633    -0.506     -0.506       -0.283
+W6Q12    WITH W6Q11              255.143     1.246      1.246        2.093
+W6Q13    WITH TRSTLGL              1.376    -0.133     -0.133       -0.045
+W6Q13    WITH TRSTPLC              5.529    -0.280     -0.280       -0.088
+W6Q13    WITH TRSTPLT              4.946     0.148      0.148        0.130
+W6Q13    WITH TRSTPRT              0.554     0.049      0.049        0.039
+W6Q13    WITH TRSTUN              12.746    -0.432     -0.432       -0.139
+W6Q13    WITH W6Q9                 5.177     0.255      0.255        0.087
+W6Q13    WITH W6Q10               17.221     0.553      0.553        0.155
+W6Q13    WITH W6Q11               58.018    -0.572     -0.572       -0.482
+W6Q13    WITH W6Q12                6.833    -0.191     -0.191       -0.146
+W6Q14    WITH TRSTLGL              3.784    -0.230     -0.230       -0.073
+W6Q14    WITH TRSTPLC              6.632    -0.321     -0.321       -0.094
+W6Q14    WITH TRSTPLT              1.413     0.081      0.081        0.067
+W6Q14    WITH TRSTPRT              5.966     0.164      0.164        0.124
+W6Q14    WITH TRSTEP               8.218    -0.327     -0.327       -0.111
+W6Q14    WITH W6Q9                19.248     0.513      0.513        0.164
+W6Q14    WITH W6Q10               20.094     0.625      0.625        0.164
+W6Q14    WITH W6Q11               50.568    -0.535     -0.535       -0.421
+W6Q14    WITH W6Q12               21.875    -0.345     -0.345       -0.247
+W6Q14    WITH W6Q13              174.033     1.422      1.422        0.511
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\msassac6\dropbox (the university of manchester)\papers\melanie revilla\ess_cronos\mplus\trust_si_metric.dgm
+
+     Beginning Time:  11:39:00
+        Ending Time:  11:39:01
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

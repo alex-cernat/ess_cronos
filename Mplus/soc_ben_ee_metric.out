@@ -1,0 +1,418 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+05/07/2019  11:27 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Social benefits equivalence testing Estonia - metric;
+
+  DATA: FILE = "data4.dat";
+
+  VARIABLE:
+  NAMES = idno cntry w6part w5part w5q38 w5q39 w5q40 w5q41 psppsgva actrolga psppipla
+       cptppola w5q32 w5q33 w5q34 w5q35 w5q36 w5q37 wrkprty wrkorg badge sgnptit
+       pbldmn pstplonl w5q44 w5q46 w5q48 testgc33 testgc34 testgc35 w5q57 w5q58 w5q59
+       w6q5 w6q6 w6q7 ppltrst pplfair pplhlp w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+       sbeqsoc sbbsntx w6q9 w6q10 w6q11 w6q12 w6q13 w6q14 trstlgl trstplc trstplt
+       trstprt trstep trstun comp;
+
+  USEVARIABLES = w5q63 w5q64 w5q65 w5q66 sbstrec sbprvpv
+       sbeqsoc sbbsntx;
+
+  MISSING=.;
+
+  USEOBSERVATIONS ARE w5part EQ 1 AND cntry EQ 1;
+
+
+
+   Model:
+
+   soc_ben_ess BY
+      sbstrec (a)
+      sbprvpv (b)
+      sbeqsoc (c)
+      sbbsntx (d);
+
+   soc_ben_cro BY
+      w5q63 (a)
+      w5q64 (b)
+      w5q65 (c)
+      w5q66 (d);
+
+      sbstrec WITH w5q63;
+      sbprvpv WITH w5q64;
+      sbeqsoc WITH w5q65;
+      sbbsntx WITH w5q66;
+
+
+   Output:
+      STANDARDIZED(STDYX) MODINDICES(.1) ;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Social benefits equivalence testing Estonia - metric;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         601
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   W5Q63       W5Q64       W5Q65       W5Q66       SBSTREC     SBPRVPV
+   SBEQSOC     SBBSNTX
+
+Continuous latent variables
+   SOC_BEN_    SOC_BEN_
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  data4.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            13
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              W5Q63         W5Q64         W5Q65         W5Q66         SBSTREC
+              ________      ________      ________      ________      ________
+ W5Q63          0.963
+ W5Q64          0.963         0.963
+ W5Q65          0.957         0.957         0.957
+ W5Q66          0.957         0.957         0.952         0.957
+ SBSTREC        0.948         0.948         0.942         0.942         0.982
+ SBPRVPV        0.958         0.958         0.952         0.952         0.978
+ SBEQSOC        0.962         0.962         0.955         0.955         0.980
+ SBBSNTX        0.947         0.947         0.940         0.940         0.968
+
+
+           Covariance Coverage
+              SBPRVPV       SBEQSOC       SBBSNTX
+              ________      ________      ________
+ SBPRVPV        0.995
+ SBEQSOC        0.995         0.998
+ SBBSNTX        0.978         0.982         0.982
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     W5Q63                 3.458      -0.122       1.000    0.86%       3.000      3.000      3.000
+             579.000       0.811      -0.487       5.000   11.92%       4.000      4.000
+     W5Q64                 2.950       0.127       1.000    6.04%       2.000      3.000      3.000
+             579.000       1.098      -0.821       5.000    6.56%       3.000      4.000
+     W5Q65                 3.151      -0.020       1.000    3.13%       2.000      3.000      3.000
+             575.000       1.040      -0.883       5.000    8.17%       4.000      4.000
+     W5Q66                 3.043      -0.099       1.000    5.22%       2.000      3.000      3.000
+             575.000       0.922      -0.457       5.000    5.04%       3.000      4.000
+     SBSTREC               3.246      -0.341       1.000    3.05%       2.000      3.000      3.000
+             590.000       0.904      -0.628       5.000    5.42%       4.000      4.000
+     SBPRVPV               2.811       0.202       1.000    6.02%       2.000      2.000      3.000
+             598.000       1.030      -1.051       5.000    2.84%       3.000      4.000
+     SBEQSOC               3.038      -0.020       1.000    3.83%       2.000      3.000      3.000
+             600.000       1.037      -1.072       5.000    4.83%       4.000      4.000
+     SBBSNTX               2.915       0.022       1.000    4.41%       2.000      3.000      3.000
+             590.000       0.884      -0.860       5.000    2.37%       3.000      4.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     WARNING:  THE RESIDUAL COVARIANCE MATRIX (THETA) IS NOT POSITIVE DEFINITE.
+     THIS COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR AN OBSERVED
+     VARIABLE, A CORRELATION GREATER OR EQUAL TO ONE BETWEEN TWO OBSERVED
+     VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE THAN TWO OBSERVED VARIABLES.
+     CHECK THE RESULTS SECTION FOR MORE INFORMATION.
+     PROBLEM INVOLVING VARIABLE SBSTREC.
+
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       26
+
+Loglikelihood
+
+          H0 Value                       -6366.565
+          H1 Value                       -6176.648
+
+Information Criteria
+
+          Akaike (AIC)                   12785.130
+          Bayesian (BIC)                 12899.493
+          Sample-Size Adjusted BIC       12816.950
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            379.833
+          Degrees of Freedom                    18
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.183
+          90 Percent C.I.                    0.167  0.199
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.506
+          TLI                                0.231
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            760.330
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.117
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SOC_BEN_ BY
+    SBSTREC            1.000      0.000    999.000    999.000
+    SBPRVPV            0.143      0.076      1.894      0.058
+    SBEQSOC            0.074      0.058      1.275      0.202
+    SBBSNTX            0.452      0.183      2.477      0.013
+
+ SOC_BEN_ BY
+    W5Q63              1.000      0.000    999.000    999.000
+    W5Q64              0.143      0.076      1.894      0.058
+    W5Q65              0.074      0.058      1.275      0.202
+    W5Q66              0.452      0.183      2.477      0.013
+
+ SOC_BEN_ WITH
+    SOC_BEN_ES         0.346      0.153      2.265      0.024
+
+ SBSTREC  WITH
+    W5Q63             -0.089      0.148     -0.604      0.546
+
+ SBPRVPV  WITH
+    W5Q64              0.159      0.044      3.608      0.000
+
+ SBEQSOC  WITH
+    W5Q65              0.246      0.044      5.575      0.000
+
+ SBBSNTX  WITH
+    W5Q66              0.169      0.043      3.979      0.000
+
+ Intercepts
+    W5Q63              3.457      0.037     92.698      0.000
+    W5Q64              2.951      0.044     67.621      0.000
+    W5Q65              3.150      0.043     74.123      0.000
+    W5Q66              3.045      0.040     76.160      0.000
+    SBSTREC            3.243      0.039     83.018      0.000
+    SBPRVPV            2.811      0.041     67.953      0.000
+    SBEQSOC            3.039      0.042     73.108      0.000
+    SBBSNTX            2.917      0.039     75.441      0.000
+
+ Variances
+    SOC_BEN_ES         0.965      0.393      2.453      0.014
+    SOC_BEN_CR         0.642      0.277      2.318      0.020
+
+ Residual Variances
+    W5Q63              0.166      0.273      0.607      0.544
+    W5Q64              1.090      0.065     16.895      0.000
+    W5Q65              1.038      0.061     16.946      0.000
+    W5Q66              0.791      0.070     11.363      0.000
+    SBSTREC           -0.060      0.390     -0.154      0.878
+    SBPRVPV            1.004      0.059     17.004      0.000
+    SBEQSOC            1.032      0.060     17.272      0.000
+    SBBSNTX            0.688      0.088      7.862      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SOC_BEN_ BY
+    SBSTREC            1.033      0.209      4.940      0.000
+    SBPRVPV            0.139      0.050      2.767      0.006
+    SBEQSOC            0.071      0.045      1.574      0.115
+    SBBSNTX            0.472      0.097      4.855      0.000
+
+ SOC_BEN_ BY
+    W5Q63              0.891      0.190      4.695      0.000
+    W5Q64              0.109      0.039      2.803      0.005
+    W5Q65              0.058      0.037      1.584      0.113
+    W5Q66              0.377      0.077      4.872      0.000
+
+ SOC_BEN_ WITH
+    SOC_BEN_ES         0.440      0.067      6.532      0.000
+
+ SBSTREC  WITH
+    W5Q63            999.000    999.000    999.000    999.000
+
+ SBPRVPV  WITH
+    W5Q64              0.152      0.041      3.738      0.000
+
+ SBEQSOC  WITH
+    W5Q65              0.238      0.039      6.064      0.000
+
+ SBBSNTX  WITH
+    W5Q66              0.229      0.044      5.165      0.000
+
+ Intercepts
+    W5Q63              3.846      0.120     32.094      0.000
+    W5Q64              2.809      0.092     30.509      0.000
+    W5Q65              3.087      0.100     30.862      0.000
+    W5Q66              3.170      0.101     31.367      0.000
+    SBSTREC            3.410      0.107     31.756      0.000
+    SBPRVPV            2.779      0.090     31.043      0.000
+    SBEQSOC            2.984      0.095     31.351      0.000
+    SBBSNTX            3.100      0.099     31.465      0.000
+
+ Variances
+    SOC_BEN_ES         1.000      0.000    999.000    999.000
+    SOC_BEN_CR         1.000      0.000    999.000    999.000
+
+ Residual Variances
+    W5Q63              0.205      0.338      0.607      0.544
+    W5Q64              0.988      0.009    115.849      0.000
+    W5Q65              0.997      0.004    235.146      0.000
+    W5Q66              0.858      0.058     14.665      0.000
+    SBSTREC           -0.066    999.000    999.000    999.000
+    SBPRVPV            0.981      0.014     70.099      0.000
+    SBEQSOC            0.995      0.006    154.585      0.000
+    SBBSNTX            0.777      0.092      8.461      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    W5Q63              0.795      0.338      2.348      0.019
+    W5Q64              0.012      0.009      1.401      0.161
+    W5Q65              0.003      0.004      0.792      0.428
+    W5Q66              0.142      0.058      2.436      0.015
+    SBSTREC         Undefined   0.10665E+01
+    SBPRVPV            0.019      0.014      1.384      0.166
+    SBEQSOC            0.005      0.006      0.787      0.431
+    SBBSNTX            0.223      0.092      2.427      0.015
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.513E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index     0.100
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+BY Statements
+
+SOC_BEN_ BY W5Q63                  0.763     0.089      0.087        0.097
+SOC_BEN_ BY W5Q65                  0.299    -0.023     -0.022       -0.022
+SOC_BEN_ BY W5Q66                  0.605    -0.036     -0.036       -0.037
+SOC_BEN_ BY SBSTREC                1.007    -0.277     -0.272       -0.286
+SOC_BEN_ BY SBPRVPV                0.730     0.020      0.019        0.019
+SOC_BEN_ BY SBBSNTX                0.159     0.010      0.009        0.010
+SOC_BEN_ BY W5Q63                  1.007     0.277      0.222        0.247
+SOC_BEN_ BY W5Q64                  0.730    -0.040     -0.032       -0.031
+SOC_BEN_ BY W5Q66                  0.159    -0.035     -0.028       -0.029
+SOC_BEN_ BY SBSTREC                0.659    -0.123     -0.098       -0.103
+SOC_BEN_ BY SBPRVPV                0.141     0.023      0.019        0.018
+SOC_BEN_ BY SBEQSOC                0.829    -0.054     -0.043       -0.043
+SOC_BEN_ BY SBBSNTX                0.733     0.059      0.047        0.050
+
+WITH Statements
+
+W5Q64    WITH W5Q63                1.524    -0.051     -0.051       -0.120
+W5Q65    WITH W5Q63                0.231    -0.019     -0.019       -0.045
+W5Q65    WITH W5Q64              155.333     0.532      0.532        0.501
+W5Q66    WITH W5Q63                2.904     0.209      0.209        0.577
+W5Q66    WITH W5Q64                1.858    -0.057     -0.057       -0.061
+W5Q66    WITH W5Q65                5.162    -0.085     -0.085       -0.094
+SBSTREC  WITH W5Q66                0.742    -0.038     -0.038      999.000
+SBPRVPV  WITH W5Q65                1.854    -0.056     -0.056       -0.055
+SBEQSOC  WITH W5Q63                1.550    -0.042     -0.042       -0.101
+SBEQSOC  WITH W5Q64                0.844    -0.039     -0.039       -0.037
+SBEQSOC  WITH W5Q66                0.414     0.023      0.023        0.026
+SBEQSOC  WITH SBSTREC              0.238    -0.023     -0.023      999.000
+SBEQSOC  WITH SBPRVPV            144.144     0.483      0.483        0.474
+SBBSNTX  WITH W5Q63                0.938     0.042      0.042        0.125
+SBBSNTX  WITH W5Q65                0.191    -0.015     -0.015       -0.017
+SBBSNTX  WITH SBPRVPV              0.485    -0.033     -0.033       -0.040
+SBBSNTX  WITH SBEQSOC              1.757    -0.047     -0.047       -0.055
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\msassac6\dropbox (the university of manchester)\papers\melanie revilla\ess_cronos\mplus\soc_ben_ee_metric.d
+
+     Beginning Time:  11:27:44
+        Ending Time:  11:27:44
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen
