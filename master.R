@@ -10,15 +10,13 @@
 
 
 # clear working space
-rm(list = ls ())
+rm(list = ls())
 
 
 
 # Admin -------------------------------------------------------------------
 
 # folders for installed packages
-
-# .libPaths(c(paste0("C:/Users/", Sys.getenv("USERNAME"), "/Dropbox (The University of Manchester)/R/package")))
 
 
 # create folders and unzip
