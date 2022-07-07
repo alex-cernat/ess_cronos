@@ -5,7 +5,7 @@ This is the code used for the analysis done in the peer-reviewed paper:
 Alexandru Cernat, Melanie Revilla, Moving from Face-to-Face to a Web Panel: Impacts on Measurement Quality, *Journal of Survey Statistics and Methodology*, Volume 9, Issue 4, September 2021, Pages 745–763, https://doi.org/10.1093/jssam/smaa007
 
 
-The analysis is based on the European Social Survey and they were downloaded from (https://www.europeansocialsurvey.org/)[https://www.europeansocialsurvey.org/]. The names and versions of the data used are:
+The analysis is based on the European Social Survey and they were downloaded from [https://www.europeansocialsurvey.org/](https://www.europeansocialsurvey.org/). The names and versions of the data used are:
 
 - CRONOS Administrative data, edition 1.1 (published 15.03.19)
 - CRONOS Integrated data, edition 1.0 (published 16.05.18)
