@@ -42,8 +42,6 @@ desc_tab <- function(x,
   print(tab)
 }
 
-.data <- summ_data %>%
-  group_by(cntry)
 
 desc_tab2 <- function(.data,
                       var,
