@@ -36,9 +36,7 @@ pkg <- c("tidyverse", "ggthemes", "haven", "reshape2",
 sapply(pkg, library, character.only = T)
 
 # load local functions
-map(str_c("./functions/",
-          list.files("./functions/")),
-    source)
+map(list.files("./functions/", full.names = T), source)
 
 
 
